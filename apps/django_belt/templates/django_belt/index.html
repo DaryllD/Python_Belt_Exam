@@ -2,9 +2,42 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Login/Registration</title>
     </head>
     <body>
-        <h1></h1>
+        <h1>Welcome!</h1>
+        {% if messages %}
+            {% for message in messages %}
+        		<p>{{  message }}</p>
+            {% endfor %}
+        {% endif %}
+        <form action="/register" method="post">
+            {% csrf_token %}
+            <label>Name:</label>
+            <input  type="text" name="f_l_name" />
+            <label>User Name:</label>
+            <input type="text" name="user_name"  />
+            <label>Password:</label>
+            <input type="password" name="password" />
+            <p>
+                *password should be at least 8 characters
+            </p>
+            <label>Confirm PW:</label>
+            <input type="password" name="password_confirmation" />
+            <label>Date Hired:</label>
+            <input type="date" name="date_hired" />
+            <input type="submit" value="Register" />
+        </form>
+
+        <div>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <label>Login:</label>
+            <input type="text" name="user_name" />
+            <input type="password" name="password" />
+            <input type="submit" value="Login" />
+        </div>
+        </form>
+        <a href="/logout">Logout</a>
     </body>
 </html>

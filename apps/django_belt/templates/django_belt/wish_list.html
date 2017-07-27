@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Wish List</title>
+    </head>
+    <body>
+        <div>
+        <h1>Hello, {{  user_name  }}</h1>
+        {% for item in items %}
+            {{  item_name    }} {{  added_by  }} {{  created_at}} <a href="/remove">Remove from my wishlist</a>
+        {% endfor %}
+        </div>
+        <div>
+            <h3>Other User's Wish List</h3>
+            {% for item in items %}
+
+            {% endfor %}
+        </div>
+        <a href="/create">Add Item</a>
+        <a href="/logout">Logout</a>
+    </body>
+</html>
